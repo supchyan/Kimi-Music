@@ -1,26 +1,49 @@
 <template>
-    <!-- <h1>{{ text }}</h1> -->
-    <iframe class="video" frameborder="0" .src=link></iframe> 
+    <div ref="iframe" style="
+        border-radius: 50px;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: rgba(0,0,0,0);
+        opacity: var(--opacity);
+        pointer-events: none;
+        z-index: -1;
+    "/>
 </template>
-
-<style scoped>
-.video {
-    
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+:root {
+    --opacity: 0;
+}
+#displayName {
+    margin: 0;
+    padding: 0;
     top: 0;
     left: 0;
     position: absolute;
+    color: black;
+    font-size: 48px;
+    font-family: "Monomaniac One", sans-serif;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     width: 100%;
     height: 100%;
-    border-radius: 50px;
-    background-color: rgba(0, 0, 0, 0);
-    
 }
 </style>
 <script setup>
-    import { queue } from './bot.js'
-    import { getId } from './ytp.js'
+    import { ref } from 'vue'
+    import { videoPlayer } from './video.js'
 
-    let source = 'https://www.youtube.com/watch?v=8Kx9Y2ot2d8';
-    let link = `https://www.youtube.com/embed/${getId(source)}?autoplay=1&controls=0`
-    
+    let username = `i'm here!`
+
+    const root = document.documentElement;
+
+    const iframe = ref()
+    videoPlayer(iframe, root)
+
 </script>

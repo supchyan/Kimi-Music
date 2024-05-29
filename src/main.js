@@ -1,11 +1,14 @@
 import './assets/main.css'
-
-import { createApp } from 'vue'
+import { createManager } from '@vue-youtube/core';
+import { createApp } from 'vue';
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+const manager = createManager({
+    deferLoading: {
+        enabled: true,
+        autoLoad: true,
+    },
+});
 
-app.use(router)
-
-app.mount('#app')
+const app = createApp(App).use(router).use(manager).mount('#app')

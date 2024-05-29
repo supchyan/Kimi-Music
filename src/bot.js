@@ -7,9 +7,7 @@ const opts = {
         username: 'zero',
         password: token
     },
-    channels: [
-        channel
-    ]
+    channels: [ channel ]
 };
 const client = new tmi.client(opts);
 client.on('message', onMessageHandler);

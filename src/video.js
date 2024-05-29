@@ -8,6 +8,8 @@ let isAdminPlaying = false;
 let adminCanPlay = true;
 let opacityLerp = 0;
 let adminTime = 0;
+let curVideoTitle = '';
+let curVideoURL = '';
 
 function videoPlayer(iframe, root) {
     const { instance, onStateChange, onReady } = usePlayer('', iframe, {
@@ -18,7 +20,13 @@ function videoPlayer(iframe, root) {
 
     onStateChange((event) => {
 
-        // data 0 - триггер, который срабатывает, когда плеер заканчивает играть видео
+        // data 1 - триггер, который срабатывает, когда плеер 'начинает' проигрывать видео
+        if(event.data == '1') {
+            curVideoTitle = event.target.videoTitle;
+            curVideoURL = event.target.getVideoUrl();
+        }
+
+        // data 0 - триггер, который срабатывает, когда плеер 'заканчивает' проигрывать видео
         if(event.data == '0') {
 
             // увиличивает значение стека в очереди и сбрасывает '*playing' триггеры
@@ -83,4 +91,8 @@ function videoPlayer(iframe, root) {
 }
 
 export default { }
-export { videoPlayer }
+export { 
+    videoPlayer,
+    curVideoTitle,
+    curVideoURL
+}

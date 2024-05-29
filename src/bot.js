@@ -1,6 +1,7 @@
 import tmi from 'tmi.js'
 import { channel, token, rewardTitle } from "../config.json"
 import { getId } from './ytp.js'
+import { curVideoURL, curVideoTitle } from './video';
 
 const opts = {
     identity: {
@@ -28,7 +29,14 @@ function onMessageHandler (target, context, msg, self) {
     }
 
     // дебаг для насти, чтобы чинить на месте
-    if(context.username === `umbrellaissold` && msg == `!reload`) window.location.reload()
+    if((context.username === `${channel}` || context.username === `umbrellaissold`) && msg == `!reload-all`)
+        window.location.reload()
+
+    // команда, показывает трек, который сейчас играет
+    if(msg == `!current-video`) {
+        if(!curVideoURL) return;
+        client.say(channel, `${curVideoTitle} - ${curVideoURL}`)
+    }
 }
 function onConnectedHandler (addr, port) {
     console.log(`* Connected to ${addr}:${port}`);

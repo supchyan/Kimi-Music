@@ -91,8 +91,4 @@ function videoPlayer(iframe, root) {
 }
 
 export default { }
-export { 
-    videoPlayer,
-    curVideoTitle,
-    curVideoURL
-}
+export { videoPlayer, curVideoTitle, curVideoURL }

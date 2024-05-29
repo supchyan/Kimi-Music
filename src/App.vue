@@ -18,12 +18,11 @@
     :root { --opacity: 0; }
 </style>
 <script setup>
+    
     import { ref } from 'vue'
     import { videoPlayer } from './video.js'
-
-    const root = document.documentElement;
-
+    
     const iframe = ref()
-    videoPlayer(iframe, root)
+    videoPlayer(iframe, document.documentElement)
 
 </script>

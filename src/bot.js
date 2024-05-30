@@ -1,5 +1,6 @@
 import tmi from 'tmi.js'
 import { channel, token, rewardTitle } from "../config.json"
+import { reloadAll, currentVideo } from "../commands.json"
 import { getId } from './ytp.js'
 import { curVideoURL, curVideoTitle } from './video';
 
@@ -30,11 +31,11 @@ function onMessageHandler (target, context, msg, self) {
     }
 
     // дебаг для насти, чтобы чинить на месте
-    if((context.username === `${channel}` || context.username === `umbrellaissold`) && msg == `!reloadAll`)
+    if((context.username === `${channel}` || context.username === `umbrellaissold`) && msg == reloadAll)
         window.location.reload()
 
     // команда, показывает трек, который сейчас играет
-    if(msg == `!currentVideo`) {
+    if(msg == currentVideo) {
         if(!curVideoURL) return;
         client.say(channel, `${curVideoTitle} - ${curVideoURL}`)
     }

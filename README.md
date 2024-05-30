@@ -22,7 +22,7 @@ npm i vue.js tmi.js @vue-youtube/core
 ### Как запустить сервер:
 В папке репозитория открываем консоль и пишем:
 ```
-yarn run dev
+npm run dev
 ```
 #### Если всё ок, то увидите это:
 ![image](https://github.com/supchyan/kimi-music-obs/assets/123704468/e10b5d00-9f58-4a2e-984d-39de64dea6b8)

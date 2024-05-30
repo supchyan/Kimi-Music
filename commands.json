@@ -1,4 +1,5 @@
 {
     "currentVideo":"!currentVideo",
-    "reloadAll":"!reloadAll"
+    "reloadAll":"!reloadAll",
+    "showType":"!showType"
 }

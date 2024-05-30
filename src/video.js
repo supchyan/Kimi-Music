@@ -66,8 +66,6 @@ function videoPlayer(iframe, root) {
             adminTime = 0;
 
         } else {
-
-            console.log('normal queue events')
             
             if(isPlaying) return;
             

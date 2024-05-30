@@ -46,7 +46,7 @@ npm run dev
 {
   "channel":"ваш username канала"
   "token":"ваш oauth токен"
-  "rewardTitle":"оставьте пустым"
+  "rewardType":"оставьте пустым"
 }
 ```
 Где взять `token`? [Тут](https://twitchapps.com/tmi/)

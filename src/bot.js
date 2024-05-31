@@ -25,7 +25,7 @@ let oldRewardType = '';
 let nextTrigger = false;
 
 // слушатель сообщений
-function onMessageHandler (target, context, msg, self) {
+function onMessageHandler (target, sender, msg, self) {
 
     // ВНИМАНИЕ КОСТЫЛЬ!!!
 
@@ -35,10 +35,10 @@ function onMessageHandler (target, context, msg, self) {
     if(client.username !== channel) return;
 
     //  проверка доступа к команде
-    const modPermission = context.username === channel || context.mod;
+    const modPermission = sender.username === channel || sender.mod;
 
     if(queueMusic || rewardRequired == '0') {
-        if (context.username === channel) {
+        if (sender.username === channel) {
             // добавляет музыку в очередь стримера
             if(getId(msg)) adminQueue.push(getId(msg))
     

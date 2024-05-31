@@ -55,8 +55,8 @@ function onMessageHandler (target, sender, msg, self) {
 
     // команда, показывает трек, который сейчас играет
     if(msg == currentVideo) {
-        if(!curVideoURL) return;
-        client.say(channel, `${curVideoTitle} - ${curVideoURL}`)
+        if(curVideoURL)
+            client.say(channel, `${curVideoTitle} - ${curVideoURL}`)
     }
 
     // триггер следующего трека

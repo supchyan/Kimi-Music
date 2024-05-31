@@ -78,13 +78,13 @@ function onConnectedHandler (addr, port) {
 // слушает награды, в частности, нужна разве что для того,
 // чтобы отправиьт в чат идентификатор награды, который
 // используется в rewardType в config.json
-function onRedeemed(target, username, type, sender) {
-
-    //  проверка доступа к событию
-    const modPermission = username === channel || sender.mod;
+function onRedeemed(target, username, type, sender) {   
 
     // про костыль выше читай
     if(client.username !== channel) return;
+
+    //  проверка доступа к событию
+    const modPermission = username === channel || sender.mod;
 
     // запускает триггер постановки трека в очередь,
     // если id награды соответствует тому, что в конфиге.

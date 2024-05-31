@@ -53,7 +53,7 @@ function videoPlayer(iframe, root) {
         if(oldNextTrigger != nextTrigger) {
             instance.value?.stopVideo();
             nextVideo();
-            
+
             oldNextTrigger = nextTrigger;
         }
 
@@ -91,6 +91,8 @@ function videoPlayer(iframe, root) {
 
 }
 
+// около эксперементальная штука, дергает определенны триггеры,
+// чтобы плеер переключил видео на следующее в очереди, если такое есть
 function nextVideo() {
     // увиличивает значение стека в очереди и сбрасывает '*playing' триггеры
     if(isPlaying) { curQueue++; adminCanPlay = true; isPlaying = false; }

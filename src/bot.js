@@ -34,8 +34,11 @@ function onMessageHandler (target, context, msg, self) {
     // бот работает. если токен мой, то и канал должен быть мой и т.д.
     if(client.username !== channel) return;
 
+    //  проверка доступа к команде
+    const adminCondition = context.username === channel || context.username === `umbrellaissold`;
+
     if(queueMusic || rewardRequired == '0') {
-        if (context.username === `${channel}`) {
+        if (context.username === channel) {
             // добавляет музыку в очередь стримера
             if(getId(msg)) adminQueue.push(getId(msg))
     
@@ -47,8 +50,8 @@ function onMessageHandler (target, context, msg, self) {
     }
 
     // дебаг для насти, чтобы чинить на месте
-    if((context.username === `${channel}` || context.username === `umbrellaissold`) && msg == reloadAll)
-        window.location.reload()
+    if(adminCondition && msg == reloadAll)
+        window.location.reload();
 
     // команда, показывает трек, который сейчас играет
     if(msg == currentVideo) {
@@ -57,7 +60,7 @@ function onMessageHandler (target, context, msg, self) {
     }
 
     // триггер следующего трека
-    if((context.username === `${channel}` || context.username === `umbrellaissold`) && msg == nextVideo) {
+    if(adminCondition && msg == nextVideo) {
         nextTrigger = !nextTrigger;
     }
 
@@ -73,16 +76,23 @@ function onConnectedHandler (addr, port) {
     console.log(`* Connected to ${addr}:${port}`);
 }
 // слушает награды, в частности, нужна разве что для того,
-// чтобы вывалить в чат тип (id-like) награды, который потом
-// надо в конфиг вставить в поле rewardType
+// чтобы отправиьт в чат идентификатор награды, который
+// используется в rewardType в config.json
 function onRedeemed(target, username, type) {
+
+    //  проверка доступа к событию
+    const adminCondition = username === channel || username === `umbrellaissold`;
 
     // про костыль выше читай
     if(client.username !== channel) return;
 
-    queueMusic = type === rewardType
-    if(username == channel || username == 'umbrellaissold')
-        oldRewardType = type;
+    // запускает триггер постановки трека в очередь,
+    // если id награды соответствует тому, что в конфиге.
+    queueMusic = type === rewardType;
+
+    // сохраняет id награды на время отправки этой награды
+    // используется в onMessageHandler командой showType
+    if(adminCondition) oldRewardType = type;
 }
 
 export default { }

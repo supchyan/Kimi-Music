@@ -1,5 +1,5 @@
 import tmi from 'tmi.js'
-import { channel, token, rewardType } from "../config.json"
+import { channel, token, rewardType, rewardRequired } from "../config.json"
 import { reloadAll, currentVideo, showType } from "../commands.json"
 import { getId } from './ytp.js'
 import { curVideoURL, curVideoTitle } from './video';
@@ -26,7 +26,7 @@ let oldRewardType = '';
 // слушатель сообщений
 function onMessageHandler (target, context, msg, self) {
 
-    if(queueMusic) {
+    if(queueMusic || rewardRequired == '0') {
         if (context.username === `${channel}`) {
             // добавляет музыку в очередь стримера
             if(getId(msg)) adminQueue.push(getId(msg))

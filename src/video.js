@@ -80,7 +80,6 @@ function videoPlayer(iframe, root) {
             // чтобы после того, как все треки тут проиграются,
             // вернуться к админ очереди в нужный трек, в нужное время
             adminTime = instance.value?.getCurrentTime() 
-
             // и заменяет на обычную очередь
             instance.value?.loadVideoById(queue[curQueue],0,'hd720')
             isPlaying = true;

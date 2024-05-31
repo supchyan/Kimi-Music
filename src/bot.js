@@ -35,7 +35,7 @@ function onMessageHandler (target, context, msg, self) {
     if(client.username !== channel) return;
 
     //  проверка доступа к команде
-    const adminCondition = context.username === channel || context.username === `umbrellaissold`;
+    const modPermission = context.username === channel || context.mod;
 
     if(queueMusic || rewardRequired == '0') {
         if (context.username === channel) {
@@ -50,7 +50,7 @@ function onMessageHandler (target, context, msg, self) {
     }
 
     // дебаг для насти, чтобы чинить на месте
-    if(adminCondition && msg == reloadAll)
+    if(modPermission && msg == reloadAll)
         window.location.reload();
 
     // команда, показывает трек, который сейчас играет
@@ -60,7 +60,7 @@ function onMessageHandler (target, context, msg, self) {
     }
 
     // триггер следующего трека
-    if(adminCondition && msg == nextVideo) {
+    if(modPermission && msg == nextVideo) {
         nextTrigger = !nextTrigger;
     }
 
@@ -78,10 +78,10 @@ function onConnectedHandler (addr, port) {
 // слушает награды, в частности, нужна разве что для того,
 // чтобы отправиьт в чат идентификатор награды, который
 // используется в rewardType в config.json
-function onRedeemed(target, username, type) {
+function onRedeemed(target, username, type, sender) {
 
     //  проверка доступа к событию
-    const adminCondition = username === channel || username === `umbrellaissold`;
+    const modPermission = username === channel || sender.mod;
 
     // про костыль выше читай
     if(client.username !== channel) return;
@@ -92,7 +92,7 @@ function onRedeemed(target, username, type) {
 
     // сохраняет id награды на время отправки этой награды
     // используется в onMessageHandler командой showType
-    if(adminCondition) oldRewardType = type;
+    if(modPermission) oldRewardType = type;
 }
 
 export default { }

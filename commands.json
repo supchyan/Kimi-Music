@@ -1,5 +1,6 @@
 {
     "currentVideo":"!currentVideo",
     "reloadAll":"!reloadAll",
-    "showType":"!showType"
+    "showType":"!showType",
+    "nextVideo":"!nextVideo"
 }

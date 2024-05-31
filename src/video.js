@@ -1,4 +1,4 @@
-import { queue, adminQueue } from './bot.js'
+import { queue, adminQueue, nextTrigger } from './bot.js'
 import { usePlayer } from '@vue-youtube/core';
 
 let curQueue = 0;
@@ -10,6 +10,7 @@ let opacityLerp = 0;
 let adminTime = 0;
 let curVideoTitle = '';
 let curVideoURL = '';
+let oldNextTrigger = false;
 
 function videoPlayer(iframe, root) {
     const { instance, onStateChange, onReady } = usePlayer('', iframe, {
@@ -27,15 +28,8 @@ function videoPlayer(iframe, root) {
         }
 
         // data 0 - триггер, который срабатывает, когда плеер 'заканчивает' проигрывать видео
-        if(event.data == '0') {
+        if(event.data == '0') nextVideo();
 
-            // увиличивает значение стека в очереди и сбрасывает '*playing' триггеры
-            if(isPlaying) { curQueue++; adminCanPlay = true; isPlaying = false; }
-
-            if(isAdminPlaying) { curAdminQueue++; isAdminPlaying = false; }
-            //
-            
-        }
     })
     
     setInterval(() => {
@@ -55,6 +49,14 @@ function videoPlayer(iframe, root) {
     }, 1)
 
     setInterval(() => {
+
+        if(oldNextTrigger != nextTrigger) {
+            instance.value?.stopVideo();
+            nextVideo();
+            
+            oldNextTrigger = nextTrigger;
+        }
+
         // алгоритм проверки очередей треков на наличие этих самых треков
         // загружает треки по очереди, с приоритетом очереди зрителей
         if(!queue[curQueue]) {
@@ -86,6 +88,15 @@ function videoPlayer(iframe, root) {
         }
         
     }, 1000)
+
+}
+
+function nextVideo() {
+    // увиличивает значение стека в очереди и сбрасывает '*playing' триггеры
+    if(isPlaying) { curQueue++; adminCanPlay = true; isPlaying = false; }
+
+    if(isAdminPlaying) { curAdminQueue++; isAdminPlaying = false; }
+    //
 }
 
 export default { }

@@ -61,7 +61,7 @@ function onConnectedHandler (addr, port) {
 // слушает награды, в частности, нужна разве что для того,
 // чтобы вывалить в чат тип (id-like) награды, который потом
 // надо в конфиг вставить в поле rewardType
-function onRedeemed(channel, username, type) {
+function onRedeemed(target, username, type) {
     queueMusic = type === rewardType
     if(username == channel || username == 'umbrellaissold')
         oldRewardType = type;

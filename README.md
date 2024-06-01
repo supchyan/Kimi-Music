@@ -90,8 +90,9 @@ node --version
 5. Нажимаем `ОК`
 <br/><br/>
 #### Должно выглядеть как-то так:
-![image](https://github.com/supchyan/kimi-music-obs/assets/123704468/f70c46e1-6095-432d-992f-8804b041882b)
+![image](https://github.com/supchyan/kimi-music-obs/assets/123704468/9a5b4bc2-ca16-4013-9ba0-fc922550d353)
 <br/><br/>
+
 
 ## Что дальше?
 В целом с этого момента оверлей работает и ждет ссылки на ютуб с чата на твиче в приоритете `зритель >>> стример` <br/>

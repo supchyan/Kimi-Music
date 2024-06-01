@@ -15,7 +15,8 @@
     "@vue-youtube/core": "^0.0.6",
     "tmi.js": "^1.8.5",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue.js": "^0.3.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",

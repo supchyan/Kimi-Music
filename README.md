@@ -93,6 +93,9 @@ node --version
 ![image](https://github.com/supchyan/kimi-music-obs/assets/123704468/9a5b4bc2-ca16-4013-9ba0-fc922550d353)
 <br/><br/>
 
+![aaa](https://github.com/supchyan/kimi-music-obs/assets/123704468/02ed85dd-c6dc-42f3-b462-98fc24f92476)<br/>
+*Если всё сделали правильно, то увидите такую анимацию в окошке оверлея*
+<br/><br/>
 
 ## Что дальше?
 В целом с этого момента оверлей работает и ждет ссылки на ютуб с чата на твиче в приоритете `зритель >>> стример` <br/>

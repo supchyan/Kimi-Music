@@ -22,7 +22,7 @@ node --version
 ```
 *У **Windows** в качестве терминала на всех этапах используйте **powershell.*** <br/><br/>
 
-#### Если Windows будет ругаться, что у скрипта нет подписи, то просто выполните его через ПКМ -> Выполнить в PowerShell:
+#### Если Windows будет ругаться, что у скрипта нет подписи, то нажмитие по `install.ps1` ПКМ -> Выполнить в PowerShell:
 ![image](https://github.com/supchyan/kimi-music-obs/assets/123704468/9b26d119-adb7-4deb-9057-6b7196f5b083)
 <br/><br/>
 

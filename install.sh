@@ -1,1 +1,0 @@
-npm i vue.js tmi.js @vue-youtube/core

@@ -38,7 +38,7 @@ function videoPlayer(iframe, root) {
 
             if(opacityLerp < 1) opacityLerp += 0.05;
 
-        } else {
+        } else if(!isPlaying && !isAdminPlaying) {
 
             if(opacityLerp > 0) opacityLerp -= 0.05;
 

@@ -23,7 +23,6 @@ const adminQueue = []; // очередь стримера
 let queueMusic = false;
 let oldRewardType = '';
 let nextTrigger = false;
-let forbitQueue = false;
 
 // слушатель сообщений
 function onMessageHandler (target, sender, msg, self) {

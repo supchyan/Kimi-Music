@@ -86,7 +86,7 @@ function videoPlayer(iframe, root) {
 
         }
         
-    }, 1000)
+    }, 100)
 
 }
 
@@ -94,9 +94,9 @@ function videoPlayer(iframe, root) {
 // чтобы плеер переключил видео на следующее в очереди, если такое есть
 function nextVideo() {
     // увиличивает значение стека в очереди и сбрасывает '*playing' триггеры
-    if(isPlaying) { curQueue++; adminCanPlay = true; isPlaying = false; }
+    if(isPlaying) { curQueue++; adminCanPlay = true; isPlaying = false; curVideoURL = ''; }
 
-    if(isAdminPlaying) { curAdminQueue++; isAdminPlaying = false; }
+    if(isAdminPlaying) { curAdminQueue++; isAdminPlaying = false; curVideoURL = ''; }
     //
 }
 

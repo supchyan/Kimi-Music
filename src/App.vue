@@ -1,7 +1,7 @@
 <template>
     <div id="splashBox">
         <div id="splashContent">
-            <img src="./assets/logo.svg" alt="my-logo" />
+            <img src="./assets/logo.svg" alt="appLogo" />
             <div>
                 <div id="plainBar"></div>
                 <div id="fillBar"></div>

@@ -1,8 +1,8 @@
 import tmi from 'tmi.js'
-import { channel, token, rewardType, rewardRequired } from "../config.json"
-import { reloadAll, currentVideo, showType, nextVideo } from "../commands.json"
+import { channel, token, rewardType, rewardRequired } from "../../config.json"
+import { reloadAll, currentVideo, showType, nextVideo } from "../../commands.json"
 import { getId } from './ytp.js'
-import { curVideoURL, curVideoTitle } from './video';
+import { curVideoURL, curVideoTitle } from './video.js';
 
 const opts = {
     identity: { username: 'zero', password: token },

@@ -20,9 +20,9 @@ client.connect();
 const queue = []; // очередь зрителей
 const adminQueue = []; // очередь стримера
 
-let queueMusic = false;
-let oldRewardType = '';
-let nextTrigger = false;
+let queueMusic = false; // триггер для постановки музыки в очередь
+let oldRewardType = ''; // временное хранилище типа
+let nextTrigger = false; // триггер перехода на след. трек
 
 // слушатель сообщений
 function onMessageHandler (target, sender, msg, self) {

@@ -23,6 +23,7 @@ const adminQueue = []; // очередь стримера
 let queueMusic = false;
 let oldRewardType = '';
 let nextTrigger = false;
+let forbitQueue = false;
 
 // слушатель сообщений
 function onMessageHandler (target, sender, msg, self) {
@@ -37,7 +38,7 @@ function onMessageHandler (target, sender, msg, self) {
     //  проверка доступа к команде
     const modPermission = sender.username === channel || sender.mod;
 
-    if(queueMusic || rewardRequired == '0') {
+    if(queueMusic && rewardRequired == 1) {
         if (sender.username === channel) {
             // добавляет музыку в очередь стримера
             if(getId(msg)) adminQueue.push(getId(msg))
@@ -49,14 +50,28 @@ function onMessageHandler (target, sender, msg, self) {
         queueMusic = false;
     }
 
+    if(rewardRequired == 0) {
+        if(msg.startsWith('!queue ')) {
+            if (sender.username === channel) {
+                // добавляет музыку в очередь стримера
+                if(getId(msg)) adminQueue.push(getId(msg))
+        
+            } else {
+                // добавляет музыку в очередь зрителей
+                if(getId(msg)) queue.push(getId(msg))
+            }
+        }
+    }
+
     // дебаг для насти, чтобы чинить на месте
     if(modPermission && msg == reloadAll)
         window.location.reload();
 
     // команда, показывает трек, который сейчас играет
     if(msg == currentVideo) {
-        if(curVideoURL)
+        if(curVideoURL) {
             client.say(channel, `${curVideoTitle} - ${curVideoURL}`)
+        }
     }
 
     // триггер следующего трека

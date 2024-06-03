@@ -2,6 +2,13 @@
   <img src="https://github.com/supchyan/kimi-music-obs/assets/123704468/04b49f24-2f25-47a5-8a87-d5eac141359e" height="150" />
 </div>
 <br/>
+<div align="center">
+<a href="https://discord.gg/dGF8p9UGyM">
+  <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/037e74ed-d5cc-4f4c-b668-0c004180b3ab" width="24"/>
+  </br>
+  <span>My Discord</span>
+</a>  
+</div>
 
 ## Прежде всего:
 Весь оверлей работает на `nodejs`, поэтому, если у вас его нет - надо [установить с офф сайта](https://nodejs.org/en). Проверить установлен ли `nodejs` можно, написав в консоли

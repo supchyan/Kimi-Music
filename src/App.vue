@@ -9,81 +9,17 @@
         </div>
     </div>
     
-    <div ref="iframe" style="
-        border-radius: 50px;
-        margin: 0;
-        padding: 0;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background-color: rgba(0,0,0,0);
-        opacity: var(--opacity);
-        pointer-events: none;
-        z-index: -1;
-    "/>
+    <div ref="iframe" id="video" />
 </template>
-<style>
-    :root { --opacity: 0; --loading: 0%; --splashOpacity: 1 }
-    #splashBox {
-        border-radius: 50px;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        background-color: yellow;
-        opacity: var(--splashOpacity);
-        z-index: 100;
-        overflow: hidden;
-    }
-    #splashContent {
-        width: 330px;
-        scale: 300%;
-    }
-    #plainBar {
-        background-color: white;
-        width: 100%;
-        height: 16px;
-    }
-    #fillBar {
-        margin-top: -16px;
-        background-color: black;
-        width: var(--loading);
-        height: 16px;
-    }
-</style>
+<style> @import './assets/App.css'; </style>
 <script setup>
-    
     import { ref } from 'vue'
     import { videoPlayer } from './video.js'
-    
+    import { splashTranslate } from './splashTranslate.js';
+
     const root = document.documentElement;
-
     const iframe = ref()
+    
     videoPlayer(iframe, root)
-
-    let loading = 0;
-    let splashOpacity = 1;
-
-    setInterval(() => {
-        
-        if(loading < 100) {
-            loading+=0.5;
-            root.style.setProperty('--loading', `${loading}%`);
-        
-        } else {
-            if(splashOpacity > 0) {
-                splashOpacity -= 0.05;
-                root.style.setProperty('--splashOpacity', splashOpacity);
-            }
-        }
-
-    }, 1 )
-
+    splashTranslate(root)
 </script>

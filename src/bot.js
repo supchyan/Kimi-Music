@@ -51,7 +51,8 @@ function onMessageHandler (target, sender, msg, self) {
     }
 
     if(rewardRequired == 0) {
-        if(msg.startsWith('!queue ')) {
+        const bunny = msg.startsWith('!queue -');
+        if(msg.startsWith('!queue') && !bunny) {
             if (sender.username === channel) {
                 // добавляет музыку в очередь стримера
                 if(getId(msg)) adminQueue.push(getId(msg))
